@@ -1,10 +1,11 @@
 {
   "device": "neoudp2",
-  "fw_ver": "6.1.0",
-  "build": "2025-11-21 00:00:00",
-  "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_6.1.0.bin",
+  "fw_ver": "6.2.1",
+  "build": "2025-11-21 15:03:43",
+  "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_6.2.1.bin",
   "notes": [
-    "Initial firmware untuk NEO-UDP2.",
-    "FW_VER = 6.1.0."
+    "Firmware NEO-UDP2 v6.2.1.",
+    "FW_VER = 6.2.1 (sesuai yang tampil di web UI).",
+    "Mendukung firmware bank + online update dari GitHub."
   ]
 }
