@@ -2,19 +2,19 @@
   "rp2040": {
     "fw_ver": "6.6.2",
     "arch": "rp2040",
-    "build": "Feb 04 2026 17:16:29",
-    "bin": "neoudp2_rp2040_6.6.2_20260204-171629.bin",
-    "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2040_6.6.2_20260204-171629.bin"
+    "build": "Feb 04 2026 17:33:20",
+    "bin": "neoudp2_rp2040_6.6.2_20260204-173320.bin",
+    "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2040_6.6.2_20260204-173320.bin"
   },
   "fw_ver": "6.6.2",
-  "build": "Feb 04 2026 17:16:29",
-  "bin": "neoudp2_rp2040_6.6.2_20260204-171629.bin",
-  "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2040_6.6.2_20260204-171629.bin",
+  "build": "Feb 04 2026 17:33:20",
+  "bin": "neoudp2_rp2040_6.6.2_20260204-173320.bin",
+  "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2040_6.6.2_20260204-173320.bin",
   "rp2350": {
     "fw_ver": "6.6.2",
     "arch": "rp2350",
-    "build": "Feb 04 2026 17:16:34",
-    "bin": "neoudp2_rp2350_6.6.2_20260204-171634.bin",
-    "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2350_6.6.2_20260204-171634.bin"
+    "build": "Feb 04 2026 17:33:25",
+    "bin": "neoudp2_rp2350_6.6.2_20260204-173325.bin",
+    "bin_url": "https://evenliesye0103-lang.github.io/neoudp2-firmware/firmware/neoudp2_rp2350_6.6.2_20260204-173325.bin"
   }
 }
