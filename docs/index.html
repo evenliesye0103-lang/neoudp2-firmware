@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="title">NEO-UDP2 ファームウェアバンク</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;background:#0b1220;color:#d9e1f2}
+    a{color:#7cc4ff}
+    code,pre{background:#121c31;padding:2px 6px;border-radius:6px}
+    .card{background:#121c31;padding:20px;border-radius:14px;margin-bottom:16px}
+    .btn{display:inline-block;background:#7cc4ff;color:#06111f;font-weight:bold;padding:10px 18px;border-radius:8px;text-decoration:none;margin-top:8px;margin-right:8px}
+    .btn:hover{filter:brightness(1.08)}
+    .muted{color:#93a3c2;font-size:0.85rem}
+    .langbar{display:flex;justify-content:flex-end;gap:6px;margin-bottom:12px}
+    .langbar button{background:#121c31;color:#93a3c2;border:1px solid #223052;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem}
+    .langbar button.active{background:#7cc4ff;color:#06111f;border-color:#7cc4ff;font-weight:bold}
+    .base-row{margin-bottom:14px}
+    .base-row:last-child{margin-bottom:0}
+    .base-row h3{margin-bottom:4px}
+  </style>
+</head>
+<body>
+  <div class="langbar">
+    <button data-lang="ja">日本語</button>
+    <button data-lang="en">English</button>
+    <button data-lang="id">Indonesia</button>
+  </div>
+
+  <div class="card">
+    <h1 data-i18n="heading">NEO-UDP2 ファームウェアバンク</h1>
+    <p data-i18n="desc">NEO-UDP2 OTAアップデート用の静的ファームウェアリポジトリです。</p>
+    <p><a href="./latest.json" data-i18n="linkLatest">latest.json を開く</a></p>
+    <p><a href="./firmware/" data-i18n="linkFolder">firmware フォルダを開く</a></p>
+  </div>
+
+  <div class="card">
+    <h2 data-i18n="baseTitle">ベースファームウェア</h2>
+    <p class="muted" data-i18n="baseDesc">BOOTSEL/UF2経由での初回書き込み用ファームウェアです。基板に合わせて選んでください。</p>
+
+    <div class="base-row">
+      <h3>RP2040</h3>
+      <a class="btn" href="./rp2040_base_6.6.2/firmware.uf2" download>
+        <span data-i18n="baseBtn">ベースファームウェアをダウンロード (.uf2)</span> &mdash; v6.6.2
+      </a>
+    </div>
+
+    <div class="base-row">
+      <h3>RP2350</h3>
+      <a class="btn" href="./rp2350_base_6.6.2/firmware.uf2" download>
+        <span data-i18n="baseBtn">ベースファームウェアをダウンロード (.uf2)</span> &mdash; v6.6.2
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      ja: {
+        htmlLang: 'ja',
+        title: 'NEO-UDP2 ファームウェアバンク',
+        heading: 'NEO-UDP2 ファームウェアバンク',
+        desc: 'NEO-UDP2 OTAアップデート用の静的ファームウェアリポジトリです。',
+        linkLatest: 'latest.json を開く',
+        linkFolder: 'firmware フォルダを開く',
+        baseTitle: 'ベースファームウェア',
+        baseDesc: 'BOOTSEL/UF2経由での初回書き込み用ファームウェアです。基板に合わせて選んでください。',
+        baseBtn: 'ベースファームウェアをダウンロード (.uf2)',
+      },
+      en: {
+        htmlLang: 'en',
+        title: 'NEO-UDP2 Firmware Bank',
+        heading: 'NEO-UDP2 Firmware Bank',
+        desc: 'Static firmware repository for NEO-UDP2 OTA update.',
+        linkLatest: 'Open latest.json',
+        linkFolder: 'Open firmware folder',
+        baseTitle: 'Base Firmware',
+        baseDesc: 'Firmware for the first flash via BOOTSEL/UF2. Choose the one matching your board.',
+        baseBtn: 'Download Base Firmware (.uf2)',
+      },
+      id: {
+        htmlLang: 'id',
+        title: 'NEO-UDP2 Firmware Bank',
+        heading: 'NEO-UDP2 Firmware Bank',
+        desc: 'Repositori firmware statis untuk update OTA NEO-UDP2.',
+        linkLatest: 'Buka latest.json',
+        linkFolder: 'Buka folder firmware',
+        baseTitle: 'Base Firmware',
+        baseDesc: 'Firmware awal untuk flashing pertama kali via BOOTSEL/UF2. Pilih sesuai board kamu.',
+        baseBtn: 'Download Base Firmware (.uf2)',
+      },
+    };
+
+    const STORAGE_KEY = 'neoudp2-lang';
+    const DEFAULT_LANG = 'ja';
+
+    function applyLang(lang) {
+      const t = translations[lang] || translations[DEFAULT_LANG];
+      document.documentElement.lang = t.htmlLang;
+      document.title = t.title;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.querySelectorAll('.langbar button').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('.langbar button').forEach((btn) => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    let initialLang = DEFAULT_LANG;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && translations[saved]) initialLang = saved;
+    } catch (e) {}
+    applyLang(initialLang);
+  </script>
+</body>
+</html>
